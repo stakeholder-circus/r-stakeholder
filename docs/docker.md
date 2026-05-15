@@ -1,9 +1,10 @@
-# Rust Docker
+# R Docker
 
-## Build and test
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+## Build and smoke
+```bash
+docker build -t r-stakeholder .
+docker run --rm r-stakeholder --list-values
+docker run --rm r-stakeholder --output-format json --seed 42 --focus-family code-analyzer
+```
 
-## Rationale
-- The image compiles and tests the Rust baseline before packaging the runtime binary.
-- Docker is the reproducible Linux gate; host and CI matrices still cover native OS behavior.
+The image uses `rocker/r-ver` and runs the base-R validation suite during build.

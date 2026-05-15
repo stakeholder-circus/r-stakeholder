@@ -1,5 +1,6 @@
 - Repository: `r-stakeholder`
 - Upstream reference: `giacomo-b/rust-stakeholder`
 - Imported upstream history is preserved in git history.
-- New scaffold content is AI-assisted and manually reviewed.
+- New R rewrite content is AI-assisted and manually reviewed.
 - Attribution intent: preserve upstream MIT notice exactly and record later human-authored changes explicitly.
+- Deterministic runtime provenance in JSON identifies `sourceRepo=rust-stakeholder` and `targetRepo=r-stakeholder`.

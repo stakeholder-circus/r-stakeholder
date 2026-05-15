@@ -1,15 +1,18 @@
-  # R Toolchain
+# R Toolchain
 
-  - State: scaffold-only next-20 prep
-  - Toolchain source: `brew`
+- State: Tranche C deterministic-first rewrite implemented locally.
+- Toolchain source: `brew` locally, `r-lib/actions/setup-r` in CI, `rocker/r-ver` in Docker.
 
-  ## Planned commands after promotion
-    - `brew install r`
-- `Rscript -e 'sessionInfo()'`
+## Native commands
+```bash
+Rscript -e 'sessionInfo()'
+Rscript bin/stakeholder.R --list-values
+Rscript tests/test_cli.R
+python3 scripts/validate_scaffold.py
+```
 
-  ## Scaffold-time checks
-  - `python3 scripts/validate_scaffold.py`
-  - `/nix/var/nix/profiles/default/bin/nix --extra-experimental-features 'nix-command flakes' flake lock`
-
-  ## Current limitation
-  - Requires a Brew install before implementation.
+## Docker commands
+```bash
+docker build -t r-stakeholder .
+docker run --rm r-stakeholder --output-format json --seed 42 --focus-family code-analyzer
+```

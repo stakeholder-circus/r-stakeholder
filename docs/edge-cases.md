@@ -1,6 +1,8 @@
-# Rust Edge Cases
+# R Edge Cases
 
-- Seeded JSON runs must remain deterministic.
-- `alerts` and `team` act as injections into the scheduler, not alternate modes.
-- Healthcare, charging, protocol, and quantum families should only enter plans when dev type or keyword routing makes them eligible.
-- Experimental live-provider concepts must not affect default deterministic output.
+- Seeded JSON runs are byte-stable for the same arguments.
+- `--focus-family` restricts output to one listed dedicated or grouped fallback family.
+- `--experimental-provider` exits non-zero with a clear deterministic-boundary message.
+- `--duration 0` emits one deterministic cycle in R so validation never blocks indefinitely.
+- Empty `--framework ""` is allowed.
+- Invalid enum values fail with status 2.

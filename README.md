@@ -1,34 +1,32 @@
 > [!WARNING]
-> This repository is AI-assisted and manually reviewed. It is currently a local-only scaffold in the next-20 autonomous sprint.
+> This repository is AI-assisted and manually reviewed. It is currently local-only and must not be pushed until publication governance allows it.
 
 # r-stakeholder
 
-R scaffold under stakeholder-circus.
+Deterministic Rscript rewrite for the stakeholder-circus Tranche C lane.
 
 ## Status
-- Selected for the next-20 autonomous sprint.
-- Local-only scaffold; no upstream tracking and no publication yet.
-- Default branch remains `main`; active work happens on the repo-specific baseline branch.
+- Runtime: base R CLI at `bin/stakeholder.R`.
+- Scope: full dedicated `classic-six + modern-core`; grouped fallback for later families.
+- Provider stance: `--experimental-provider` fails fast by design.
+- Remote stance: local-only, no upstream tracking, no push.
 
-## Role
-- Deterministic full-parity target for the next-20 wave.
-- First tranche target is `classic-six + modern-core` with grouped fallback for later families.
-- Full live-provider/runtime support remains a required follow-on wave.
+## Run
+```bash
+Rscript bin/stakeholder.R --list-values
+Rscript bin/stakeholder.R --output-format json --seed 42 --complexity extreme --project hospital-ocpp-quantum-control --framework "mcp grpc" --trace
+Rscript bin/stakeholder.R --focus-family platform-engineering --output-format text --seed 7
+```
 
-## Planned toolchain contract
-- Toolchain source: `brew`
-- See [docs/toolchain.md](docs/toolchain.md) for exact prep commands.
+## Validate
+```bash
+Rscript tests/test_cli.R
+python3 scripts/validate_scaffold.py
+docker build -t r-stakeholder .
+docker run --rm r-stakeholder --output-format json --seed 42 --focus-family code-analyzer
+```
 
-## Current guardrail
-- Missing behavior must fail fast and be recorded in `GAPS.md`.
-- The scaffold baseline is authoritative until implementation starts.
-- Requires a Brew install before implementation.
+## Contract
+Supported flags include `--list-values`, `--focus-family`, `--output-format text|json`, `--seed`, and explicit `--experimental-provider` fail-fast. JSON output is normalized line-delimited event JSON with deterministic timestamps and same-seed stability.
 
-## Documentation
-- [STATUS.md](STATUS.md)
-- [PARITY.md](PARITY.md)
-- [GAPS.md](GAPS.md)
-- [docs/remotes.md](docs/remotes.md)
-- [docs/provenance.md](docs/provenance.md)
-- [docs/toolchain.md](docs/toolchain.md)
-- [docs/traceability/first-push-families.md](docs/traceability/first-push-families.md)
+The MIT license notice from the imported Rust project is preserved in `LICENSE`.

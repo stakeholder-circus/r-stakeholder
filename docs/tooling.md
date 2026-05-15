@@ -1,19 +1,11 @@
-# Rust Tooling
+# R Tooling
 
 ## Commands
-- `cargo fmt`
-- `cargo clippy -- -D warnings`
-- `cargo build`
-- `cargo test`
-- `docker build -t rust-stakeholder .`
-- `docker run --rm rust-stakeholder --list-values`
+- `Rscript -e 'sessionInfo()'`
+- `Rscript bin/stakeholder.R --list-values`
+- `Rscript tests/test_cli.R`
+- `python3 scripts/validate_scaffold.py`
+- `docker build -t r-stakeholder .`
+- `docker run --rm r-stakeholder --list-values`
 
-## Extended local checks
-- `cargo nextest run`
-- `cargo audit`
-- `cargo deny check`
-- `cargo udeps`
-
-## Notes
-- The Docker path is the reproducible Linux baseline.
-- Native CI should still cover macOS and Windows semantics.
+No formatter, linter, or package manager is required for the base-R tranche.

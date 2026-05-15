@@ -1,15 +1,20 @@
 # R Parity
 
-- Role: local-only full-parity target in the next-20 wave
-- Parity class: full-parity
+Rust remains the source-of-truth and `stakeholder-core` remains the behavioral contract. This repo now implements the deterministic Tranche C subset in base R.
 
-## Review model
-- Rust remains the canonical source-of-truth.
-- `stakeholder-core` remains the behavioral contract.
-- This repo is deterministic-first for the initial tranche.
+## Exact / normalized-equivalent
+- CLI values and validation match the deterministic contract surface.
+- Normalized JSON events use stable keys, deterministic `T+...ms` timestamps, sequence numbers, provenance, family, protocol, schema, and context fields.
+- Same seed and same args produce byte-identical JSON lines.
 
-## Promotion prerequisites
-- Deterministic `classic-six + modern-core` implemented.
-- Native and Docker validation green.
-- `--list-values`, deterministic same-seed JSON, and experimental-provider fail-fast present.
-- Publication/governance wave complete and remote access available.
+## Dedicated families
+- Classic-six: `code-analyzer`, `data-processing`, `jargon`, `metrics`, `network-activity`, `system-monitoring`.
+- Modern-core: `agent-workflows`, `platform-engineering`, `observability-ai-runtime`, `delivery-preview-ops`, `supply-chain-security`.
+
+## Deferred grouped fallback
+- `ai-governance`
+- `security-blockchain`
+- `health-protocol`
+- `overlay-quantum`
+
+These are intentional grouped fallbacks, not claims of full dedicated later-family parity.

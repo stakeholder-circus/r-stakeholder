@@ -1,5 +1,5 @@
-# Rust Language Specialties
+# R Language Specialties
 
-- Rust is the canonical scheduler and generator baseline.
-- Shared domain concepts are modeled explicitly so follower languages can port stable semantics instead of re-deriving them.
-- Rust remains the reference for deterministic seeded behavior and normalized JSON semantics.
+- Base R only: no CRAN dependency, lockfile, renv, or system package manager friction.
+- Deterministic JSON is emitted by a small local serializer to keep ordering stable.
+- A tiny LCG is used instead of R's global RNG so same-seed behavior is independent of R's sampling implementation.

@@ -1,5 +1,5 @@
-# Rust Experimental Surface
+# R Experimental Surface
 
-- Live-provider concepts are modeled separately from the deterministic baseline.
-- OpenAI-compatible APIs, Anthropic APIs, and consumer-account adapters remain documentation and interface work until explicitly wired into a guarded runtime path.
-- Experimental additions must not change seeded parity fixtures by default.
+Live-provider work is intentionally outside the deterministic R Tranche C runtime. Passing `--experimental-provider NAME` fails fast and exits non-zero.
+
+This keeps native, Docker, and CI validation provider-free while preserving an explicit CLI boundary for the future provider rollout wave.

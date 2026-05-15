@@ -1,5 +1,5 @@
 {
-  description = "r-stakeholder scaffold";
+  description = "r-stakeholder deterministic R rewrite";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   outputs = { self, nixpkgs }:
     let
@@ -11,7 +11,7 @@
         in {
           check = pkgs.writeShellApplication {
             name = "check";
-            runtimeInputs = [ pkgs.python3 ];
+            runtimeInputs = [ pkgs.R pkgs.python3 ];
             text = ''
               python3 scripts/validate_scaffold.py
             '';
@@ -22,5 +22,8 @@
         check = { type = "app"; program = "${self.packages.${system}.check}/bin/check"; };
         default = self.apps.${system}.check;
       });
+      devShells = forAllSystems (system:
+        let pkgs = import nixpkgs { inherit system; };
+        in { default = pkgs.mkShell { packages = [ pkgs.R pkgs.python3 ]; }; });
     };
 }

@@ -2,5 +2,6 @@
 - Default branch: `main`
 - Origin: `git@github.com:stakeholder-circus/r-stakeholder.git`
 - Upstream: `https://github.com/giacomo-b/rust-stakeholder`
-- Role: local-only next-20 scaffold
-- Provenance model: imported Rust history retained with derivative scaffold content layered on top
+- Role: local-only Tranche C deterministic R rewrite
+- Tracking: do not attach upstream tracking or push until publication governance allows it
+- Provenance model: imported Rust history retained with derivative R rewrite content layered on top
