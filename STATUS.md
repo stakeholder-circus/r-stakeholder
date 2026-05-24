@@ -2,9 +2,9 @@
 
 - Role: Tranche C deterministic-first R rewrite
 - Parity class: full-parity target, deterministic tranche
-- State: classic-six-plus-modern-core implemented locally
-- Rewrite completeness: 58%
-- Functionality completeness: 54%
+- State: native-validated local deterministic tranche
+- Rewrite completeness: 62%
+- Functionality completeness: 58%
 - Branch: `main`
 - Origin: `git@github.com:stakeholder-circus/r-stakeholder.git`
 - Upstream: `https://github.com/giacomo-b/rust-stakeholder`
@@ -17,6 +17,13 @@
 - Dedicated modern-core families: agent workflows, platform engineering, observability AI runtime, delivery preview ops, supply-chain security.
 - Grouped fallback families: AI governance, security/blockchain, health/protocol, quantum overlay.
 - Same-seed deterministic normalized JSON.
+
+## Evidence
+- `python3 scripts/validate_scaffold.py`
+- `Rscript tests/test_cli.R`
+- `Rscript bin/stakeholder.R --list-values`
+- same-seed deterministic JSON diff for `platform-engineering`
+- explicit `--experimental-provider local-demo` fail-fast smoke
 
 ## Blockers
 - Full later-family dedicated ports remain deferred beyond grouped fallback.
